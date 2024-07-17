@@ -1,0 +1,253 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+<div class="header-device-mobile">
+    <div class="wapper">
+        <div class="item mobile-logo">
+            <div class="logo">
+                <a href="#">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="img">
+                </a>
+            </div>
+        </div>
+        <div class="item item mobile-search-box has-sub">
+            <a href="#">
+						<span class="icon">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</span>
+            </a>
+            <div class="block-sub">
+                <a href="#" class="close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+                <div class="header-searchform-box">
+                    <form class="header-searchform">
+                        <div class="searchform-wrap">
+                            <input type="text" class="search-input" placeholder="Enter keywords to search...">
+                            <input type="submit" class="submit button" value="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="item mobile-settings-box has-sub">
+            <a href="#">
+						<span class="icon">
+							<i class="fa fa-cog" aria-hidden="true"></i>
+						</span>
+            </a>
+            <div class="block-sub">
+                <a href="#" class="close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+                <div class="block-sub-item">
+                    <h5 class="block-item-title">Currency</h5>
+                    <form class="currency-form ysera-language">
+                        <ul class="ysera-language-wrap">
+                            <li class="active">
+                                <a href="#">
+											<span>
+												English (USD)
+											</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+											<span>
+												French (EUR)
+											</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+											<span>
+												Japanese (JPY)
+											</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="item menu-bar">
+            <a class=" mobile-navigation  menu-toggle" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="main-content main-content-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-trail breadcrumbs">
+                    <ul class="trail-items breadcrumb">
+                        <li class="trail-item trail-begin">
+                            <a href="{% url 'index' %}">Главная</a>
+                        </li>
+                        <li class="trail-item trail-end active">
+                            О нас
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content-area content-about col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="site-main">
+                    <h3 class="custom_blog_title">О нас</h3>
+                    <div class="page-main-content">
+                        <div class="header-banner banner-image">
+                            <div class="banner-wrap">
+                                <div class="banner-header">
+                                    <div class="col-lg-5 col-md-offset-7">
+                                        <div class="content-inner">
+                                            <h2 class="title">
+                                               {{about.title}}
+                                            </h2>
+                                            <div class="sub-title">
+                                                {{about.description}}
+                                            </div>
+                                            <a href="#" class="ysera-button button">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-4">
+                                <div class="ysera-iconbox  layout1">
+                                    <div class="iconbox-inner">
+                                        <div class="icon-item">
+                                            <span class="placeholder-text">01</span>
+                                            <span class="icon flaticon-rocket-ship"></span>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">
+                                                {{service.delivery}}
+                                            </h4>
+                                            <div class="text">
+                                                {{service.delivery_desc}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-4 col-lg-offset-1">
+                                <div class="ysera-iconbox  layout1">
+                                    <div class="iconbox-inner">
+                                        <div class="icon-item">
+                                            <span class="placeholder-text">02</span>
+                                            <span class="icon flaticon-return"></span>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">
+                                                {{service.money}}
+                                            </h4>
+                                            <div class="text">
+                                                {{service.money_desc}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-4 col-lg-offset-1">
+                                <div class="ysera-iconbox  layout1">
+                                    <div class="iconbox-inner">
+                                        <div class="icon-item">
+                                            <span class="placeholder-text">03</span>
+                                            <span class="icon flaticon-padlock"></span>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title">
+                                                {{service.support}}
+                                            </h4>
+                                            <div class="text">
+                                                {{service.support_desc}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="row">
+                                <div class="col-sm-12 border-custom">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <h2 class="custom_blog_title center">
+                                Наши важные люди
+                            </h2>
+                            <div class="team-member-slider nav-center owl-slick"
+                                 data-slick='{"autoplay":false, "autoplaySpeed":1000, "arrows":true, "dots":false, "infinite":true, "speed":800, "rows":1}'
+                                 data-responsive='[{"breakpoint":"0","settings":{"slidesToShow":1}},{"breakpoint":"480","settings":{"slidesToShow":1}},{"breakpoint":"767","settings":{"slidesToShow":2}},{"breakpoint":"991","settings":{"slidesToShow":3}},{"breakpoint":"1199","settings":{"slidesToShow":3}},{"breakpoint":"2000","settings":{"slidesToShow":3}}]'>
+                                {% for team in team %}
+                                 <div class="ysera-team-member">
+                                    <div class="team-member-item">
+                                        <div class="member_avatar">
+                                            <img src="{{team.image.url}}" alt="img">
+                                        </div>
+                                        <h5 class="member_name">{{team.title}}</h5>
+                                        <div class="member_position">
+                                            {{team.position}}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'include/footer.html' %}
+<div class="footer-device-mobile">
+    <div class="wapper">
+        <div class="footer-device-mobile-item device-home">
+            <a href="index.html">
+					<span class="icon">
+						<i class="fa fa-home" aria-hidden="true"></i>
+					</span>
+                Home
+            </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-wishlist">
+            <a href="#">
+					<span class="icon">
+						<i class="fa fa-heart" aria-hidden="true"></i>
+					</span>
+                Wishlist
+            </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-cart">
+            <a href="#">
+					<span class="icon">
+						<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+						<span class="count-icon">
+							0
+						</span>
+					</span>
+                <span class="text">Cart</span>
+            </a>
+        </div>
+        <div class="footer-device-mobile-item device-home device-user">
+            <a href="#">
+					<span class="icon">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</span>
+                Account
+            </a>
+        </div>
+    </div>
+</div>
+<a href="#" class="backtotop">
+    <i class="fa fa-angle-double-up"></i>
+</a>
+{% endblock %}
