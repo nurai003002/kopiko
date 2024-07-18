@@ -17,5 +17,15 @@ def about(request):
     slider = Slider.objects.all()
     service = Service.objects.latest('id')
     about = About.objects.latest('id')
+    categories = Category.objects.all()
     team = Team.objects.all()
     return render(request, 'base/about.html', locals())
+
+def contact(request):
+    setting = Setting.objects.latest('id')
+    slider = Slider.objects.all()
+    service = Service.objects.latest('id')
+    about = About.objects.latest('id')
+    categories = Category.objects.all()
+    team = Team.objects.all()
+    return render(request, 'base/contact.html', locals())

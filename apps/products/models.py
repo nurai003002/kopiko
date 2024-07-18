@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 from django_resized.forms import ResizedImageField
 # Create your models here.
 
@@ -64,7 +65,7 @@ class Product(models.Model):
         verbose_name='Статус',
         blank=True, null=True
     )
-    description = models.TextField(
+    description = RichTextField(
         verbose_name="Описание",
         blank=True, null=True
     )
@@ -80,6 +81,7 @@ class Product(models.Model):
         default="S",
         blank=True, null=True
     )
+    
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, default='no_image.jpg',
