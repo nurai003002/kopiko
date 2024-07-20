@@ -30,14 +30,14 @@
                             <a href="javascript:void(0);" class="shopcart-icon" data-ysera="ysera-dropdown">
                                 Cart
                                 <span class="count">
-									0
+									{{cart_items_count}}   
 									</span>
                             </a>
                             <div class="no-product ysera-submenu">
                                 <p class="text">
                                     У вас 
                                     <span>
-											 0 товаров
+											 {{cart_items_count}} товаров
 										</span>
                                     в корзине
                                 </p>
@@ -67,7 +67,7 @@
                                                     <input type="submit" class="button" value="Войти">
                                                 </p>
                                                 <p class="lost_password">
-                                                    <a href="register.html">нет аккаунта?</a>
+                                                    <a href="#">нет аккаунта?</a>
                                                 </p>
                                             </form>
                                         </div>
@@ -101,7 +101,7 @@
                         <ul class="ysera-nav-vertical vertical-menu ysera-clone-mobile-menu">
                             {% for category in categories %}
                             <li class="menu-item">
-                                <a href="#" class="ysera-menu-item-title" title="{{category.title}}">{{category.title}}</a>
+                                <a href="{% url 'index' %}" class="ysera-menu-item-title" title="{{category.title}}">{{category.title}}</a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -116,23 +116,8 @@
                             <li class="menu-item">
                                 <a href="{% url 'about' %}" class="ysera-menu-item-title" title="About">О нас</a>
                             </li>
-                            <li class="menu-item menu-item-has-children">
+                            <li class="menu-item menu-item">
                                 <a href="{% url 'product_index' %}" class="ysera-menu-item-title" title="Shop">Магазин</a>
-                                <span class="toggle-submenu"></span>
-                                <ul class="submenu">
-                                    <li class="menu-item">
-                                        <a href="{% url 'product_index' %}">Grid Fullwidth</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="gridproducts_leftsidebar.html">Grid Left sidebar</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="gridproducts_bannerslider.html">Grid Bannerslider</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="listproducts.html">List</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li class="menu-item  menu-item">
                                 <a href="{% url 'cart' %}" class="ysera-menu-item-title" title="Home">Корзина</a>

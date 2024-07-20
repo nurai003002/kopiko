@@ -86,121 +86,49 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% for cart_item in cart_items %}
                                     <tr class="cart_item">
                                         <td class="product-remove">
-                                            <a href="#" class="remove"></a>
+                                            <a href="{% url 'remove_from_cart' cart_item.id %}" class="remove"></a>
                                         </td>
                                         <td class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'assets/images/cart-item-2.jpg' %}" alt="img"
+                                            <a href="{% url 'product_detail' cart_item.id %}">
+                                                <img src="{{cart_item.image.url}}" alt="img"
                                                      class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">
                                             </a>
                                         </td>
                                         <td class="product-name" data-title="Product">
-                                            <a href="#" class="title">Mini swing dress</a>
-                                            <span class="attributes-select attributes-color">Black,</span>
-                                            <span class="attributes-select attributes-size">XXL</span>
+                                            <a href="{% url 'product_detail' cart_item.id %}" class="title">{{cart_item.title}}</a>
+                                            <span class="attributes-select attributes-color">{{cart_item.color}}</span>
+                                            <span class="attributes-select attributes-size">{{cart_item.size}}</span>
                                         </td>
-                                        <td class="product-quantity" data-title="Quantity">
-                                            <div class="quantity">
-                                                <div class="control">
-                                                    <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                                    <input type="text" data-step="1" data-min="0" value="1" title="Qty"
-                                                           class="input-qty qty" size="4">
-                                                    <a href="#" class="btn-number qtyplus quantity-plus">+</a>
+                                            <td class="product-quantity" data-title="Quantity">
+                                                <div class="quantity">
+                                                    <div class="control">
+                                                        <a class="btn-number qtyminus quantity-minus" href="#">-</a>
+                                                        <input type="text" data-step="1" data-min="0" value="1" title="Qty"
+                                                            class="input-qty qty" size="4">
+                                                        <a href="#" class="btn-number qtyplus quantity-plus">+</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
+                                            </td>
                                         <td class="product-price" data-title="Price">
 													<span class="woocommerce-Price-amount amount">
 														<span class="woocommerce-Price-currencySymbol">
-															$
 														</span>
-														45
+														{{cart_item.price}} сом
 													</span>
                                         </td>
                                     </tr>
-                                    <tr class="cart_item">
-                                        <td class="product-remove">
-                                            <a href="#" class="remove"></a>
-                                        </td>
-                                        <td class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'assets/images/cart-item-3.jpg' %}" alt="img"
-                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">
-                                            </a>
-                                        </td>
-                                        <td class="product-name" data-title="Product">
-                                            <a href="#" class="title">Square neck top</a>
-                                            <span class="attributes-select attributes-color">White,</span>
-                                            <span class="attributes-select attributes-size">M</span>
-                                        </td>
-                                        <td class="product-quantity" data-title="Quantity">
-                                            <div class="quantity">
-                                                <div class="control">
-                                                    <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                                    <input type="text" data-step="1" data-min="0" value="1" title="Qty"
-                                                           class="input-qty qty" size="4">
-                                                    <a href="#" class="btn-number qtyplus quantity-plus">+</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product-price" data-title="Price">
-													<span class="woocommerce-Price-amount amount">
-														<span class="woocommerce-Price-currencySymbol">
-															$
-														</span>
-														45
-													</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="product-remove">
-                                            <a href="#" class="remove"></a>
-                                        </td>
-                                        <td class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="{% static 'assets/images/cart-item-1.jpg' %}" alt="img"
-                                                     class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">
-                                            </a>
-                                        </td>
-                                        <td class="product-name" data-title="Product">
-                                            <a href="#" class="title">Elegant Diamond</a>
-                                            <span class="attributes-select attributes-color">Brown,</span>
-                                            <span class="attributes-select attributes-size">XS</span>
-                                        </td>
-                                        <td class="product-quantity" data-title="Quantity">
-                                            <div class="quantity">
-                                                <div class="control">
-                                                    <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                                    <input type="text" data-step="1" data-min="0" value="1" title="Qty"
-                                                           class="input-qty qty" size="4">
-                                                    <a href="#" class="btn-number qtyplus quantity-plus">+</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="product-price" data-title="Price">
-													<span class="woocommerce-Price-amount amount">
-														<span class="woocommerce-Price-currencySymbol">
-															$
-														</span>
-														45
-													</span>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
                                     <tr>
                                         <td class="actions">
-                                            <div class="coupon">
-                                                <label class="coupon_code">Coupon Code:</label>
-                                                <input type="text" class="input-text" placeholder="Promotion code here">
-                                                <a href="#" class="button"></a>
-                                            </div>
                                             <div class="order-total">
 														<span class="title">
-															Total Price:
+														Общая сумма:
 														</span>
                                                 <span class="total-price">
-															$95
+                                                    {{total_price}} cом
 														</span>
                                             </div>
                                         </td>
@@ -210,10 +138,10 @@
                             </form>
                             <div class="control-cart">
                                 <button class="button btn-continue-shopping">
-                                    Continue Shopping
+                                    Продолжить покупку
                                 </button>
                                 <button class="button btn-cart-to-checkout">
-                                    Checkout
+                                    Заказать
                                 </button>
                             </div>
                         </div>

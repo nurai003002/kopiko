@@ -78,7 +78,7 @@
 											{{slider.old_price}}сом
 										</span>
                                 </div>
-                                <a href="#" class="button btn-shop-the-look bgroud-style">Магазин</a>
+                                <a href="{% url 'product_index' %}" class="button btn-shop-the-look bgroud-style">Магазин</a>
                             </div>
                         </div>
                     </div>
@@ -116,28 +116,22 @@
                                         <div class="product-thumb">
                                             <div class="thumb-inner">
                                                 <!-- {% if product.image != "no_image.jpg" %} -->
-                                                <a href="#">
+                                                <a href="{% url 'product_detail' product.id %}">
                                                     <img src="{{ product.image.url }}" alt="img">
                                                 </a>
                                                 <!-- {% else %}
                                                 <img src="{% static 'assets/images/test/default_photo.png' %}" alt="Default Image">
                                                 {% endif %} -->
-                                                <div class="thumb-group">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <div class="yith-wcwl-add-button">
-                                                            <a href="#">Добавить в избранные</a>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="button quick-wiew-button">Быстрый просмотр</a>
+                                                <!-- <div class="thumb-group">
                                                     <div class="loop-form-add-to-cart">
-                                                        <button class="single_add_to_cart_button button">В корзину</button>
+                                                        <a href="{% url 'add_to_cart' product.id %}" class="single_add_to_cart_button button">В корзину</a>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="product-info">
                                             <h5 class="product-name product_title">
-                                                <a href="#">{{ product.title }}</a>
+                                                <a href="{% url 'product_detail' product.id %}">{{ product.title }}</a>
                                             </h5>
                                             <div class="group-info">
                                                 <div class="price">
@@ -183,15 +177,14 @@
                                         </div>
                                     </div>
                                     <div class="thumb-inner">
-                                        <a href="#" tabindex="0">
+                                        <a href="{% url 'product_detail' product.id %}" tabindex="0">
                                             <img src="{{product.image.url}}" alt="img">
                                         </a>
                                     </div>
-                                    <a href="#" class="button quick-wiew-button" tabindex="0">Быстрый просмотр</a>
                                 </div>
                                 <div class="product-info">
                                     <h5 class="product-name product_title">
-                                        <a href="#" tabindex="0">Suction Return</a>
+                                        <a href="{% url 'product_detail' product.id %}" tabindex="0">{{product.title}}</a>
                                     </h5>
                                     <div class="group-info">
                                         <div class="price">
@@ -204,10 +197,10 @@
                                                 <a class="btn-number qtyminus quantity-minus" href="#">-</a>
                                                 <input type="text" data-step="1" data-min="0" value="1" title="Qty"
                                                        class="input-qty qty" size="4">
-                                                <a href="#" class="btn-number qtyplus quantity-plus">+</a>
+                                                <a href="{% url 'product_detail' product.id %}" class="btn-number qtyplus quantity-plus">+</a>
                                             </div>
                                         </div>
-                                        <button class="add_to_cart_button button" tabindex="0">просмотр</button>
+                                        <a href="{% url 'product_detail' product.id %}" class="add_to_cart_button button" tabindex="0">просмотр</a>
                                     </div>
                                 </div>
                             </div>

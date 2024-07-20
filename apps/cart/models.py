@@ -10,6 +10,19 @@ class Cart(models.Model):
         verbose_name="Фото изделий",
         blank=True, null=True
     )
+    COLOR_CHOICES = (
+        ('WHITE', 'WHITE'),
+        ('BLACK', 'BLACK'),
+        ('GRAY', 'GRAY'),
+        ('BROWN', 'BROWN'),
+    )
+    SIZE_CHOICES = (
+        ('XS', 'XS'),
+        ('S', 'S'),
+        ('M', 'M'),
+        ('L', 'L'),
+        ('XL', 'XL')
+    )
     title = models.CharField(
         max_length = 255,
         verbose_name = "Название"
@@ -18,6 +31,25 @@ class Cart(models.Model):
         max_length=255, 
         verbose_name='Цена сейчас'
     )
+    color = models.CharField(
+        max_length=255,
+        verbose_name='Цвета',
+        choices=COLOR_CHOICES,
+        blank=True, null=True
+    )
+    size = models.CharField(
+        max_length=100, verbose_name="Размер товара",
+        choices=SIZE_CHOICES,
+        default="S",
+        blank=True, null=True
+    )
+    quantity = models.PositiveIntegerField(
+        verbose_name = 'Количество продукта',
+        blank=True, null=True
+    )
+    total = models.PositiveBigIntegerField(
+        default=0, 
+        verbose_name="Итоговая цена товаров")
     
     def __str__(self):
         return self.title

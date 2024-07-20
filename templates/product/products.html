@@ -88,7 +88,6 @@
                                             <a href="{% url 'product_detail' product.id %}">
                                                 <img src="{{product.image.url}}" alt="img">
                                             </a>
-                                            <a href="#" class="button quick-wiew-button">Быстрый просмотр</a>
                                         </div>
                                     </div>
                                     <div class="product-info-left">
@@ -135,7 +134,7 @@
                                                         <a href="#" class="btn-number qtyplus quantity-plus">+</a>
                                                     </div>
                                                 </div>
-                                                <button class="single_add_to_cart_button button">В корзину</button>
+                                                <a href="{% url 'add_to_cart' product.id %}" class="single_add_to_cart_button button">В корзину</a>
                                             </div>
                                         </form>
                                     </div>

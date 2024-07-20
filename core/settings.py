@@ -216,3 +216,4 @@ CKEDITOR_CONFIGS = {
         'width': 800,
     },
 }
+# AUTH_USER_MODEL = 'users.User'
