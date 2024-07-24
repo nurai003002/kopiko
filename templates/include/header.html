@@ -51,26 +51,34 @@
                                 <div class="header-user-form-tabs">
                                     <ul class="tab-link">
                                         <li class="active">
-                                            <a data-toggle="tab" aria-expanded="true" href="#header-tab-login">Войти</a>
+                                            <a data-toggle="tab" aria-expanded="true" href="#header-tab-login">пользователь</a>
                                         </li>
                                     </ul>
                                     <div class="tab-container">
                                         <div id="header-tab-login" class="tab-panel active">
-                                            <form method="post" class="login form-login">
-                                                <p class="form-row form-row-wide">
-                                                    <input type="email" placeholder="Имя пользоваеля" class="input-text">
-                                                </p>
-                                                <p class="form-row form-row-wide">
-                                                    <input type="password" class="input-text" placeholder="Пароль">
-                                                </p>
-                                                <p class="form-row">
-                                                    <input type="submit" class="button" value="Войти">
-                                                </p>
-                                                <p class="lost_password">
-                                                    <a href="#">нет аккаунта?</a>
-                                                </p>
-                                            </form>
+                                            {% if user.is_authenticated %}
+                                                <!-- Если пользователь вошел в систему -->
+                                                <div class="loop-form-add-to-cart">
+                                                    <a href="{% url 'user_logout' %}" class="single_add_to_cart_button button">Выйти</a>
+                                                </div>
+                                            {% else %}
+                                                <!-- Если пользователь не вошел в систему -->
+                                                <div class="loop-form-add-to-cart">
+                                                    <a href="{% url 'user_register' %}" class="single_add_to_cart_button button">Зарегистрироваться</a>
+                                                </div>
+                                                <div class="loop-form-add-to-cart">
+                                                    <a href="{% url 'user_login' %}" class="single_add_to_cart_button button">Войти</a>
+                                                </div>
+                                            {% endif %}
+                                            <style>
+                                                .loop-form-add-to-cart {
+                                                    margin-left: 20px;
+                                                    margin: 10px;
+                                                }
+                                            </style>      
                                         </div>
+                                    </div>
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -120,10 +128,13 @@
                                 <a href="{% url 'product_index' %}" class="ysera-menu-item-title" title="Shop">Магазин</a>
                             </li>
                             <li class="menu-item  menu-item">
-                                <a href="{% url 'cart' %}" class="ysera-menu-item-title" title="Home">Корзина</a>
+                                <a href="{% url 'cart' %}" class="ysera-menu-item-title" title="Cart">Корзина</a>
                             </li>
                             <li class="menu-item  menu-item">
-                                <a href="{% url 'contact' %}" class="ysera-menu-item-title" title="Home">Контакт</a>
+                                <a href="{% url 'contact' %}" class="ysera-menu-item-title" title="Contact">Контакт</a>
+                            </li>
+                            <li class="menu-item  menu-item">
+                                <a href="{% url 'checkout' %}" class="ysera-menu-item-title" title="Checkout">заказать</a>
                             </li>
                         </ul>
                     </div>

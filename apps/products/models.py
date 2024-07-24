@@ -37,20 +37,7 @@ class Product(models.Model):
         on_delete=models.SET_NULL,
         verbose_name="Категория товара",
         blank=True, null=True
-    )   
-    SIZE_CHOICES = (
-        ('XS', 'XS'),
-        ('S', 'S'),
-        ('M', 'M'),
-        ('L', 'L'),
-        ('XL', 'XL')
-    )
-    COLOR_CHOICES = (
-        ('WHITE', 'WHITE'),
-        ('BLACK', 'BLACK'),
-        ('GRAY', 'GRAY'),
-        ('BROWN', 'BROWN'),
-    )
+    ) 
     STATUS_CHOICES = (
         ('в наличии', 'В наличии'),
         ('нет в наличии', 'нет в наличии'),
@@ -72,16 +59,13 @@ class Product(models.Model):
     color = models.CharField(
         max_length=255,
         verbose_name='Цвета',
-        choices=COLOR_CHOICES,
         blank=True, null=True
     )
     size = models.CharField(
-        max_length=100, verbose_name="Размер товара",
-        choices=SIZE_CHOICES,
+        max_length=255, verbose_name="Размер товара",
         default="S",
         blank=True, null=True
     )
-    
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, default='no_image.jpg',

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.products',
     'apps.secondary',
     'apps.users',
+    'apps.telegram_bot',
 ]
 
 MIDDLEWARE = [
@@ -216,4 +217,4 @@ CKEDITOR_CONFIGS = {
         'width': 800,
     },
 }
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User'

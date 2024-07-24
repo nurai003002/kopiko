@@ -1,8 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from apps.settings.models import Setting, About
-from apps.secondary.models import Slider, Service, Team
 from apps.products.models import Product, Category
-from apps.cart.models import Cart
+from apps.cart.models import Cart, CartItem
 # Create your views here.
 
 def cart(request):
@@ -31,3 +30,14 @@ def remove_from_cart(request, cart_item_id):
     cart_item = get_object_or_404(Cart, pk=cart_item_id)
     cart_item.delete()
     return redirect('cart')
+
+
+def checkout(request):
+    setting = Setting.objects.latest('id')
+    products = Product.objects.all()
+    categories = Category.objects.all()
+    cart_items = Cart.objects.all()
+    total_price = sum([cart_item.total for cart_item in cart_items])
+    cart_items_count = cart_items.count()
+    cart_products = CartItem.objects.all()
+    return render(request, 'cart/checkout.html', locals())

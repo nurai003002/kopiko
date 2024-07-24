@@ -6,12 +6,11 @@
 		<div class="wapper">
 			<div class="item mobile-logo">
 				<div class="logo">
-					<a href="{% url 'index' %}">
 						<img src="{{setting.logo.url}}" alt="img">
-					</a>
 				</div>
 			</div>
 			{% include 'include/search.html' %}
+		
 		</div>
 	</div>
 	<div class="main-content main-content-login">
@@ -24,7 +23,7 @@
 								<a href="{% url 'index' %}">Главная</a>
 							</li>
 							<li class="trail-item trail-end active">
-								Авторизация
+								Регистрация
 							</li>
 						</ul>
 					</div>
@@ -34,25 +33,33 @@
 				<div class="content-area col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="site-main">
 						<h3 class="custom_blog_title">
-							Авторизация
+							Регистрация
 						</h3>
 						<div class="customer_login">
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="login-item">
-										<h5 class="title-login">Войти в аккаунт</h5>
-										<form class="login" method="POST">
+										<h5 class="title-login">Зарегистрироваться сейчас</h5>
+										<form class="register" method="POST">
                                             {% csrf_token %}
-											<p class="form-row form-row-wide">
-												<label class="text">Имя пользователя</label>
-												<input title="username" name="username" type="text" class="input-text">
+                                            <p class="form-row form-row-wide">
+                                                <label class="text">Имя пользователя</label>
+                                                <input title="name" name="username" type="text" class="input-text">
+                                            </p>
+                                            <p class="form-row form-row-wide">
+												<label class="text">Почта</label>
+												<input title="pass" name="email" type="email" class="input-text">
 											</p>
 											<p class="form-row form-row-wide">
 												<label class="text">Пароль</label>
-												<input title="password" name="password" type="password" class="input-text">
+												<input title="pass" name="password" type="password" class="input-text">
 											</p>
-											<p class="form-row">
-												<input type="submit" name="login_button" class="button-submit" value="Войти">
+                                            <p class="form-row form-row-wide">
+												<label class="text">Подтвердите пароль</label>
+												<input title="pass" name="confirm_password" type="password" class="input-text">
+											</p>
+											<p class="">
+												<input type="submit" name="register_button" class="button-submit" value="Зарегистрироваться">
 											</p>
 										</form>
 									</div>
@@ -68,19 +75,11 @@
 	<div class="footer-device-mobile">
 		<div class="wapper">
 			<div class="footer-device-mobile-item device-home">
-				<a href="index.html">
+				<a href="{% url 'index' %}">
 					<span class="icon">
 						<i class="fa fa-home" aria-hidden="true"></i>
 					</span>
-					Home
-				</a>
-			</div>
-			<div class="footer-device-mobile-item device-home device-wishlist">
-				<a href="#">
-					<span class="icon">
-						<i class="fa fa-heart" aria-hidden="true"></i>
-					</span>
-					Wishlist
+					Главная
 				</a>
 			</div>
 			<div class="footer-device-mobile-item device-home device-cart">
@@ -91,7 +90,7 @@
 							0
 						</span>
 					</span>
-					<span class="text">Cart</span>
+					<span class="text">Корзина</span>
 				</a>
 			</div>
 			<div class="footer-device-mobile-item device-home device-user">
