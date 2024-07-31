@@ -44,39 +44,42 @@
             <div class="shipping-address-form-wrapp">
                 <div class="shipping-address-form  checkout-form">
                     <div class="row-col-1 row-col">
-                        <div class="shipping-address">
+                        <form action="/submit-shipping-address" method="POST" class="shipping-address-form">
                             <h3 class="title-form">
-                            Адрес доставки
+                                Адрес доставки
                             </h3>
                             <p class="form-row form-row-first">
-                                <label class="text">Имя</label>
-                                <input title="first" type="text" class="input-text">
+                                <label class="text" for="first-name">Имя</label>
+                                <input id="first-name" name="first_name" type="text" class="input-text" required>
                             </p>
                             <p class="form-row form-row-last">
-                                <label class="text">Фамилия</label>
-                                <input title="last" type="text" class="input-text">
+                                <label class="text" for="last-name">Фамилия</label>
+                                <input id="last-name" name="last_name" type="text" class="input-text" required>
                             </p>
                             <p class="form-row forn-row-col forn-row-col-1">
-                                <label class="text">Город </label>
-                                <input title="address" type="text" class="input-text">
+                                <label class="text" for="city">Город</label>
+                                <input id="city" name="city" type="text" class="input-text" required>
                             </p>
                             <p class="form-row forn-row-col forn-row-col-2">
-                                <label class="text">Улица</label>
-                                <input title="street" type="text" class="input-text">
+                                <label class="text" for="street">Улица</label>
+                                <input id="street" name="street" type="text" class="input-text" required>
                             </p>
                             <p class="form-row forn-row-col forn-row-col-3">
-                                <label class="text">Дом</label>
-                                <input title="home" type="text" class="input-text">
+                                <label class="text" for="home">Дом</label>
+                                <input id="home" name="home" type="text" class="input-text" required>
                             </p>
                             <p class="form-row form-row-first">
-                                <label class="text">Номер телефона</label>
-                                <input title="zip" type="text" class="input-text">
+                                <label class="text" for="phone">Номер телефона</label>
+                                <input id="phone" name="phone" type="text" class="input-text" required>
                             </p>
                             <p class="form-row form-row-last">
-                                <label class="text">примечания</label>
-                                <input title="address" type="text" class="input-text">
+                                <label class="text" for="notes">Примечания</label>
+                                <input id="notes" name="notes" type="text" class="input-text">
                             </p>
-                        </div>
+                            <p class="form-row form-row-submit">
+                                <button type="submit" name="checkout_form" class="submit-button">Отправить</button>
+                            </p>
+                        </form>
                     </div>
                     <div class="row-col-2 row-col">
                         <div class="your-order">

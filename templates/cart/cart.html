@@ -102,28 +102,17 @@
                                         </td>
                                     </tr>
                                     {% endfor %}
-                                    <tr>
-                                        <td class="actions">
-                                            <div class="order-total">
-														<span class="title">
-														Общая сумма:
-														</span>
-                                                <span class="total-price">
-                                                    {{total_price}} cом
-														</span>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    
                                     </tbody>
                                 </table>
                             </form>
                             <div class="control-cart">
-                                <button class="button btn-continue-shopping">
+                                <a href="{% url 'product_index' %}" class="button btn-continue-shopping">
                                     Продолжить покупку
-                                </button>
-                                <button class="button btn-cart-to-checkout">
+                                </a>
+                                <a href="{% url 'checkout' %}" class="button btn-cart-to-checkout">
                                     Заказать
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
